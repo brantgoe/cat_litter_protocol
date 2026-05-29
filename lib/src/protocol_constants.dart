@@ -2,6 +2,21 @@
 /// compatible. v1: original integer-id format. v2: syncId-keyed format.
 const int protocolVersion = 2;
 
+/// mDNS / DNS-SD service type a master advertises and clients scan for.
+/// The trailing `.local` is added by the OS resolver.
+const String mdnsServiceType = '_catlitter._tcp';
+
+/// Conventional TXT-record keys on the advertised service. Values are short
+/// ASCII strings; readers should ignore unknown keys.
+class MdnsTxt {
+  /// Protocol version (matches [protocolVersion]).
+  static const proto = 'proto';
+  /// Master's device id (UUID-ish), used to disambiguate two masters.
+  static const deviceId = 'dev';
+  /// "1" iff the WebSocket endpoint is wss (TLS). Absent or "0" means ws.
+  static const tls = 'tls';
+}
+
 /// JSON `type` field values for messages exchanged on the WebSocket.
 class MsgType {
   static const hello = 'hello';
