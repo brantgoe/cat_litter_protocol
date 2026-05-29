@@ -7,10 +7,17 @@ class WireRoom {
     required this.syncId,
     required this.name,
     required this.updatedAt,
+    this.catCount = 0,
   });
 
   final String syncId;
   final String name;
+
+  /// Cats living in this room. 0 means "unset" (e.g. an old client that
+  /// predates the field, or the user never filled it in). Drives the
+  /// litter-change recommender.
+  final int catCount;
+
   final int updatedAt;
 }
 

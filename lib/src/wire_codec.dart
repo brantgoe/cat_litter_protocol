@@ -6,12 +6,14 @@ class WireCodec {
   static Map<String, dynamic> roomToJson(WireRoom r) => {
         'syncId': r.syncId,
         'name': r.name,
+        'catCount': r.catCount,
         'updatedAt': r.updatedAt,
       };
 
   static WireRoom roomFromJson(Map<String, dynamic> j) => WireRoom(
         syncId: j['syncId'] as String,
         name: j['name'] as String,
+        catCount: (j['catCount'] as num?)?.toInt() ?? 0,
         updatedAt: (j['updatedAt'] as num).toInt(),
       );
 
