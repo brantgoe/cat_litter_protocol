@@ -6,6 +6,7 @@ const int protocolVersion = 2;
 class MsgType {
   static const hello = 'hello';
   static const welcome = 'welcome';
+  static const reject = 'reject';
   static const snapshot = 'snapshot';
   static const upsert = 'upsert';
   static const delete = 'delete';

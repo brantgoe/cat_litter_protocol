@@ -6,12 +6,22 @@ class SyncMessages {
   static Map<String, dynamic> hello({
     required String deviceId,
     String? ownedRoomSyncId,
+    String? accessToken,
   }) =>
       {
         'type': MsgType.hello,
         'protocol': protocolVersion,
         'deviceId': deviceId,
         'ownedRoomSyncId': ownedRoomSyncId,
+        if (accessToken != null) 'accessToken': accessToken,
+      };
+
+  /// Sent by the master when an inbound connection presents a wrong or
+  /// missing access token. The client should display an "incorrect token"
+  /// error and avoid auto-reconnect.
+  static Map<String, dynamic> reject({required String reason}) => {
+        'type': MsgType.reject,
+        'reason': reason,
       };
 
   static Map<String, dynamic> welcome({
