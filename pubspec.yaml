@@ -1,0 +1,14 @@
+name: cat_litter_protocol
+description: Wire-format types, codec, and message helpers shared by the Cat Litter Box Tracker tablet app and the companion app.
+version: 0.1.0
+publish_to: 'none'
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  uuid: ^4.5.1
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^5.0.0
