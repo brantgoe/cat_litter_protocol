@@ -15,6 +15,9 @@ class MdnsTxt {
   static const deviceId = 'dev';
   /// "1" iff the WebSocket endpoint is wss (TLS). Absent or "0" means ws.
   static const tls = 'tls';
+  /// Lowercase hex SHA-256 of the master's self-signed cert (DER form).
+  /// Clients pin to this on first connect so a future MITM can't swap certs.
+  static const fingerprint = 'fp';
 }
 
 /// JSON `type` field values for messages exchanged on the WebSocket.
